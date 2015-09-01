@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31/08/2015 10:03:07 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.edu.usbcali.abet.Materia" table="MATERIA" schema="TESIS">
+        <id name="idCodigoMateria" type="java.lang.Long">
+            <column name="ID_CODIGO_MATERIA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" length="100" />
+        </property>
+        <property name="creditos" type="java.lang.String">
+            <column name="CREDITOS" length="2" />
+        </property>
+        <set name="cursos" inverse="true" lazy="true" table="CURSO" fetch="select">
+            <key>
+                <column name="ID_CODIGO_MATERIA" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.edu.usbcali.abet.Curso" />
+        </set>
+        <set name="pensums" inverse="true" lazy="true" table="PENSUM" fetch="select">
+            <key>
+                <column name="ID_CODIGO_MATERIA" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.edu.usbcali.abet.Pensum" />
+        </set>
+    </class>
+</hibernate-mapping>

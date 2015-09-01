@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>		
+	
+	<h:body>
+		   <ui:composition template="/XHTML/CommonColumnsContent.xhtml">
+			<ui:define name="header">
+				<ui:include src="/WEB-INF/facelets/header.jspx" />
+			</ui:define>
+        	<br/>
+        	<br/> 	
+		 
+		 <ui:define name="body">	
+			<f:view>
+			<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>               
+					<p:dialog modal="true" widgetVar="statusDialog" header="Loading"  draggable="false" closable="false">  
+   						<p:graphicImage value="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/images/ajaxloadingbar.gif" />   
+					</p:dialog>
+			
+		<h:form>
+			<div align="center">
+               <h:link id="cmdBack" outcome="goInitialMenu" value="Back" style="color:blue;" />
+			 </div>
+			 <br />
+			<p:panel id="msgProjectCategoriaTitle" header="Categoria" >
+			   <p:messages id="msg" showDetail="true"/>
+			   <p:growl id="men"/>
+			       <h:panelGrid columns="2" id="panel" >
+												 <h:outputText id="msgIdCategoria" value="IdCategoria"/>
+						 <p:inputText id="txtIdCategoria" binding="#{categoriaView.txtIdCategoria}">
+						 <p:ajax update="panel,msg,panelBotones" listener="#{categoriaView.listener_txtId}"/>
+						 </p:inputText>	
+																		
+												<h:outputText id="msgNombrecategoria" value=" Nombrecategoria"/>
+						<p:inputText id="txtNombrecategoria" disabled="true" binding="#{categoriaView.txtNombrecategoria}"/>
+												<h:outputText id="msgIdRubrica_Rubrica" value=" IdRubrica_Rubrica"/>
+						<p:inputText id="txtIdRubrica_Rubrica" disabled="true" binding="#{categoriaView.txtIdRubrica_Rubrica}"/>
+												
+												
+				   </h:panelGrid>
+				   
+				   <h:panelGrid id="panelBotones" columns="4">
+					
+						<p:commandButton id="btnSave" disabled="true" value="Save" action="#{categoriaView.action_save}" update="msg,panel,panelBotones"          binding="#{categoriaView.btnSave}" />
+						<p:commandButton id="btnModify" disabled="true" value="Modify" action="#{categoriaView.action_modify}" update="msg,panel,panelBotones"    binding="#{categoriaView.btnModify}" />
+						<p:commandButton id="btnDelete" disabled="true" value="Delete" action="#{categoriaView.action_delete}" update="msg,panel,panelBotones"    binding="#{categoriaView.btnDelete}" onclick="return confirm('Do you really want to delete this Entry?')" />
+						<p:commandButton id="btnClear" disabled="false" value="Clear" action="#{categoriaView.action_clear}" update="msg,panel,panelBotones"      binding="#{categoriaView.btnClear}" />
+				   
+				   </h:panelGrid>
+					
+			</p:panel>
+			
+		</h:form>
+		 </f:view>
+	 </ui:define>	  
+	
+	  <ui:define name="footer">
+		 <ui:include src="/WEB-INF/facelets/footer.jspx" />
+	   </ui:define>	
+	</ui:composition>	
+	
+	</h:body>	
+
+</html>	

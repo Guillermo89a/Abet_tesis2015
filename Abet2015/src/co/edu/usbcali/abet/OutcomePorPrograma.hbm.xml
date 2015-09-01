@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31/08/2015 10:03:07 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.edu.usbcali.abet.OutcomePorPrograma" table="OUTCOME_POR_PROGRAMA" schema="TESIS">
+        <id name="idOutcomePorPrograma" type="java.lang.Long">
+            <column name="ID_OUTCOME_POR_PROGRAMA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="outcome" class="co.edu.usbcali.abet.Outcome" fetch="select">
+            <column name="ID_OUTCOME" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="programa" class="co.edu.usbcali.abet.Programa" fetch="select">
+            <column name="ID_PROGRAMA" precision="22" scale="0" />
+        </many-to-one>
+        <set name="rubricaPorCursos" inverse="true" lazy="true" table="RUBRICA_POR_CURSO" fetch="select">
+            <key>
+                <column name="ID_OUTCOME_POR_PROGRAMA" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.edu.usbcali.abet.RubricaPorCurso" />
+        </set>
+    </class>
+</hibernate-mapping>

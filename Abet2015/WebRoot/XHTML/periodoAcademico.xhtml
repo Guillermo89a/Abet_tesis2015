@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>		
+	
+	<h:body>
+		   <ui:composition template="/XHTML/CommonColumnsContent.xhtml">
+			<ui:define name="header">
+				<ui:include src="/WEB-INF/facelets/header.jspx" />
+			</ui:define>
+        	<br/>
+        	<br/> 	
+		 
+		 <ui:define name="body">	
+			<f:view>
+			<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>               
+					<p:dialog modal="true" widgetVar="statusDialog" header="Loading"  draggable="false" closable="false">  
+   						<p:graphicImage value="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/images/ajaxloadingbar.gif" />   
+					</p:dialog>
+			
+		<h:form>
+			<div align="center">
+               <h:link id="cmdBack" outcome="goInitialMenu" value="Back" style="color:blue;" />
+			 </div>
+			 <br />
+			<p:panel id="msgProjectPeriodoAcademicoTitle" header="PeriodoAcademico" >
+			   <p:messages id="msg" showDetail="true"/>
+			   <p:growl id="men"/>
+			       <h:panelGrid columns="2" id="panel" >
+												 <h:outputText id="msgIdPeriodoAcademico" value="IdPeriodoAcademico"/>
+						 <p:inputText id="txtIdPeriodoAcademico" binding="#{periodoAcademicoView.txtIdPeriodoAcademico}">
+						 <p:ajax update="panel,msg,panelBotones" listener="#{periodoAcademicoView.listener_txtId}"/>
+						 </p:inputText>	
+																		
+												<h:outputText id="msgDescripcionPeriodo" value=" DescripcionPeriodo"/>
+						<p:inputText id="txtDescripcionPeriodo" disabled="true" binding="#{periodoAcademicoView.txtDescripcionPeriodo}"/>
+												
+												
+				   </h:panelGrid>
+				   
+				   <h:panelGrid id="panelBotones" columns="4">
+					
+						<p:commandButton id="btnSave" disabled="true" value="Save" action="#{periodoAcademicoView.action_save}" update="msg,panel,panelBotones"          binding="#{periodoAcademicoView.btnSave}" />
+						<p:commandButton id="btnModify" disabled="true" value="Modify" action="#{periodoAcademicoView.action_modify}" update="msg,panel,panelBotones"    binding="#{periodoAcademicoView.btnModify}" />
+						<p:commandButton id="btnDelete" disabled="true" value="Delete" action="#{periodoAcademicoView.action_delete}" update="msg,panel,panelBotones"    binding="#{periodoAcademicoView.btnDelete}" onclick="return confirm('Do you really want to delete this Entry?')" />
+						<p:commandButton id="btnClear" disabled="false" value="Clear" action="#{periodoAcademicoView.action_clear}" update="msg,panel,panelBotones"      binding="#{periodoAcademicoView.btnClear}" />
+				   
+				   </h:panelGrid>
+					
+			</p:panel>
+			
+		</h:form>
+		 </f:view>
+	 </ui:define>	  
+	
+	  <ui:define name="footer">
+		 <ui:include src="/WEB-INF/facelets/footer.jspx" />
+	   </ui:define>	
+	</ui:composition>	
+	
+	</h:body>	
+
+</html>	

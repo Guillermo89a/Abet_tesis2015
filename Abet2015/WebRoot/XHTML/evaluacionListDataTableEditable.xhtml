@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>
+
+	<h:body>
+	    <ui:composition template="/XHTML/CommonColumnsContent.xhtml">
+			<ui:define name="header">
+				<ui:include src="/WEB-INF/facelets/header.jspx" />
+			</ui:define>
+        	<br/>
+        	<br/> 
+		<ui:define name="body">	
+			<f:view>
+			<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>               
+					<p:dialog modal="true" widgetVar="statusDialog" header="Loading"  draggable="false" closable="false">  
+   						<p:graphicImage value="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/images/ajaxloadingbar.gif" />   
+					</p:dialog>
+		 
+		 <h:form id="form">
+			<div align="center">
+               <h:link id="cmdBack" outcome="goInitialMenu" value="Back" style="color:blue;" />
+			 </div>
+			 <br />
+			 
+			<p:panel id="msgProjectClientesTitle" header="EvaluacionData">
+					<p:messages id="msg" showDetail="true"/>
+				<p:dataTable id ="tabla" value="#{evaluacionView.data}" var="evaluacion"
+					paginator="true" rows="5"  editable="true" >
+					 
+					 <p:ajax event ="rowEdit" update=":form:msg,:form:tabla" listener="#{evaluacionView.rowEventListener}" />
+					 
+										  <p:column filterBy="#{evaluacion.idEvaluacion}" sortBy="#{evaluacion.idEvaluacion}" 
+							headerText="idEvaluacion">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{evaluacion.idEvaluacion}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{evaluacion.idEvaluacion}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+										
+										
+											
+						<p:column filterBy="#{evaluacion.idCurso_Curso}" sortBy="#{evaluacion.idCurso_Curso}" 
+							headerText="idCurso_Curso">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{evaluacion.idCurso_Curso}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{evaluacion.idCurso_Curso}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{evaluacion.idCodigoEstudiante_Estudiante}" sortBy="#{evaluacion.idCodigoEstudiante_Estudiante}" 
+							headerText="idCodigoEstudiante_Estudiante">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{evaluacion.idCodigoEstudiante_Estudiante}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{evaluacion.idCodigoEstudiante_Estudiante}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+											
+						<p:column filterBy="#{evaluacion.idOutcome_Outcome}" sortBy="#{evaluacion.idOutcome_Outcome}" 
+							headerText="idOutcome_Outcome">
+							
+								<p:cellEditor>
+								
+								<f:facet name="output">
+									<h:outputText value="#{evaluacion.idOutcome_Outcome}"/>
+								</f:facet>
+							
+								<f:facet name="input">
+									<p:inputText value="#{evaluacion.idOutcome_Outcome}"/>
+								</f:facet>
+								</p:cellEditor>	
+							</p:column>
+						
+										
+											
+					<p:column headerText="Options" >
+						<p:rowEditor id="row"/>
+						<p:tooltip for="row" value="Edit" showEffect="fade" hideEffect="fade" />
+						<p:tooltip for="btnDelete" value="Delete" showEffect="fade" hideEffect="fade" />
+						<p:commandButton id="btnDelete" action="#{evaluacionView.actionDeleteDataTableEditable}" title="Delete" onclick="return confirm('Do you really want to delete this Entry?')" icon="ui-icon-trash" update=":form:msg" >
+						<f:setPropertyActionListener value="#{evaluacion}"  target="#{evaluacionView.selectedEvaluacion}" />  
+						</p:commandButton>
+						
+					</p:column>	
+				
+				</p:dataTable>	
+					
+				
+			</p:panel>
+				
+	   </h:form>
+		  </f:view>
+	 </ui:define>	
+	 
+	  <ui:define name="footer">
+		 <ui:include src="/WEB-INF/facelets/footer.jspx" />
+	   </ui:define>	
+	</ui:composition>
+	
+	</h:body>	
+	
+</html>	

@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>
+	
+    <h:body>
+		 <ui:composition template="/XHTML/CommonColumnsContent.xhtml">
+			<ui:define name="header">
+				<ui:include src="/WEB-INF/facelets/header.jspx" />
+			</ui:define>
+        	<br/>
+        	<br/> 	
+			
+			<ui:define name="body">	
+			<f:view>
+		<h:form>
+			
+			<!-- Crud -->
+			<p:dialog width="600" height="600" widgetVar="crud"
+				header="Welcome to Zathura with PrimeFaces" showEffect="explode" hideEffect="explode">
+
+				<div align="center">
+					<h:panelGrid columns="3">
+					 					<h:link outcome="goAssesment" value="Assesment" style="color:blue;" />	
+										<h:link outcome="goCategoria" value="Categoria" style="color:blue;" />	
+										<h:link outcome="goCurso" value="Curso" style="color:blue;" />	
+										<h:link outcome="goDetalleRubrica" value="DetalleRubrica" style="color:blue;" />	
+										<h:link outcome="goDocente" value="Docente" style="color:blue;" />	
+										<h:link outcome="goEstudiante" value="Estudiante" style="color:blue;" />	
+										<h:link outcome="goEvaluacion" value="Evaluacion" style="color:blue;" />	
+										<h:link outcome="goListaSepia" value="ListaSepia" style="color:blue;" />	
+										<h:link outcome="goMateria" value="Materia" style="color:blue;" />	
+										<h:link outcome="goOutcome" value="Outcome" style="color:blue;" />	
+										<h:link outcome="goOutcomePorCurso" value="OutcomePorCurso" style="color:blue;" />	
+										<h:link outcome="goOutcomePorPrograma" value="OutcomePorPrograma" style="color:blue;" />	
+										<h:link outcome="goPensum" value="Pensum" style="color:blue;" />	
+										<h:link outcome="goPeriodoAcademico" value="PeriodoAcademico" style="color:blue;" />	
+										<h:link outcome="goPrograma" value="Programa" style="color:blue;" />	
+										<h:link outcome="goRubrica" value="Rubrica" style="color:blue;" />	
+										<h:link outcome="goRubricaPorCurso" value="RubricaPorCurso" style="color:blue;" />	
+										</h:panelGrid>
+				</div>
+			</p:dialog>
+			
+			<!-- table -->
+			<p:dialog width="600" height="600" widgetVar="table"
+				header="Welcome to Zathura with PrimeFaces" showEffect="explode" hideEffect="explode">
+			
+			<div align="center">	
+			   <h:panelGrid columns="3">
+				  				  <h:link outcome="goAssesmentListDataTable" value="Assesment-Data" style="color:blue;" />
+				  				  <h:link outcome="goCategoriaListDataTable" value="Categoria-Data" style="color:blue;" />
+				  				  <h:link outcome="goCursoListDataTable" value="Curso-Data" style="color:blue;" />
+				  				  <h:link outcome="goDetalleRubricaListDataTable" value="DetalleRubrica-Data" style="color:blue;" />
+				  				  <h:link outcome="goDocenteListDataTable" value="Docente-Data" style="color:blue;" />
+				  				  <h:link outcome="goEstudianteListDataTable" value="Estudiante-Data" style="color:blue;" />
+				  				  <h:link outcome="goEvaluacionListDataTable" value="Evaluacion-Data" style="color:blue;" />
+				  				  <h:link outcome="goListaSepiaListDataTable" value="ListaSepia-Data" style="color:blue;" />
+				  				  <h:link outcome="goMateriaListDataTable" value="Materia-Data" style="color:blue;" />
+				  				  <h:link outcome="goOutcomeListDataTable" value="Outcome-Data" style="color:blue;" />
+				  				  <h:link outcome="goOutcomePorCursoListDataTable" value="OutcomePorCurso-Data" style="color:blue;" />
+				  				  <h:link outcome="goOutcomePorProgramaListDataTable" value="OutcomePorPrograma-Data" style="color:blue;" />
+				  				  <h:link outcome="goPensumListDataTable" value="Pensum-Data" style="color:blue;" />
+				  				  <h:link outcome="goPeriodoAcademicoListDataTable" value="PeriodoAcademico-Data" style="color:blue;" />
+				  				  <h:link outcome="goProgramaListDataTable" value="Programa-Data" style="color:blue;" />
+				  				  <h:link outcome="goRubricaListDataTable" value="Rubrica-Data" style="color:blue;" />
+				  				  <h:link outcome="goRubricaPorCursoListDataTable" value="RubricaPorCurso-Data" style="color:blue;" />
+				  				</h:panelGrid>
+				
+			</div>	
+			</p:dialog>	
+			
+			<!-- TableEditable -->
+			<p:dialog width="600" height="600" widgetVar="tableEditable"
+				header="Welcome to Zathura with PrimeFaces" showEffect="explode" hideEffect="explode">
+			
+			<div align="center">
+				<h:panelGrid columns="3">
+				  				  <h:link outcome="goAssesmentListDataTableEditable" value="Assesment-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goCategoriaListDataTableEditable" value="Categoria-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goCursoListDataTableEditable" value="Curso-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goDetalleRubricaListDataTableEditable" value="DetalleRubrica-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goDocenteListDataTableEditable" value="Docente-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goEstudianteListDataTableEditable" value="Estudiante-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goEvaluacionListDataTableEditable" value="Evaluacion-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goListaSepiaListDataTableEditable" value="ListaSepia-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goMateriaListDataTableEditable" value="Materia-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goOutcomeListDataTableEditable" value="Outcome-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goOutcomePorCursoListDataTableEditable" value="OutcomePorCurso-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goOutcomePorProgramaListDataTableEditable" value="OutcomePorPrograma-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goPensumListDataTableEditable" value="Pensum-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goPeriodoAcademicoListDataTableEditable" value="PeriodoAcademico-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goProgramaListDataTableEditable" value="Programa-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goRubricaListDataTableEditable" value="Rubrica-Data-Editable" style="color:blue;" />
+				  				  <h:link outcome="goRubricaPorCursoListDataTableEditable" value="RubricaPorCurso-Data-Editable" style="color:blue;" />
+				  				</h:panelGrid>	
+			</div>	
+			</p:dialog>	
+			
+			<!-- cambiar las rutas de las imagenes -->
+			<p:stack icon="/images/home.png">
+				<p:menuitem value="Crud" icon="/images/crud.png"
+					onclick="crud.show();" oncomplete="table.hide();tableEditable.hide();" />
+				<p:menuitem value="DataTable" icon="/images/dataTable.png"
+					onclick="table.show();" oncomplete="crud.hide();tableEditable.hide();" />
+				<p:menuitem value="DataTableEditable" icon="/images/dataTableEditable.png" onclick="tableEditable.show();" oncomplete="table.hide();crud.hide();"/>
+			</p:stack>
+
+			
+		</h:form>
+          </f:view>
+	    </ui:define>    
+		
+	  <ui:define name="footer">
+		 <ui:include src="/WEB-INF/facelets/footerInitialMenu.jspx" />
+	   </ui:define>		
+			
+   </ui:composition>	
+	</h:body>
+									
+ </html>
+

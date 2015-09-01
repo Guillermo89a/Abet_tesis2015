@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</h:head>
+
+	<h:body>
+		 <ui:composition template="/XHTML/CommonColumnsContent.xhtml">
+			<ui:define name="header">
+				<ui:include src="/WEB-INF/facelets/header.jspx" />
+			</ui:define>
+        	<br/>
+        	<br/> 	
+		 
+		 <ui:define name="body">	
+			<f:view>
+			<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>               
+					<p:dialog modal="true" widgetVar="statusDialog" header="Loading"  draggable="false" closable="false">  
+   						<p:graphicImage value="#{facesContext.externalContext.request.scheme}://#{facesContext.externalContext.request.serverName}:#{facesContext.externalContext.request.serverPort}#{facesContext.externalContext.request.contextPath}/images/ajaxloadingbar.gif" />   
+					</p:dialog>
+	   <h:form>
+			<div align="center">
+               <h:link id="cmdBack" outcome="goInitialMenu" value="Back" style="color:blue;" />
+			 </div>
+			 <br />
+			 
+			<p:panel id="msgProjectClientesTitle" header="DetalleRubricaData">
+				
+				<p:dataTable value="#{detalleRubricaView.data}" var="detalleRubrica"
+					paginator="true" rows="5">
+																	<p:column filterBy="#{detalleRubrica.idDetalleRubrica}" sortBy="#{detalleRubrica.idDetalleRubrica}" >
+							 <f:facet name="header">
+							<h:outputText value="idDetalleRubrica"/>
+							</f:facet>
+							 <h:outputText value="#{detalleRubrica.idDetalleRubrica}"/>
+							 </p:column>
+                    																
+							<p:column filterBy="#{detalleRubrica.idRubrica_Rubrica}" sortBy="#{detalleRubrica.idRubrica_Rubrica}" >
+							 <f:facet name="header">
+							<h:outputText value="IdRubrica_Rubrica"/>
+							</f:facet>
+							 <h:outputText value="#{detalleRubrica.idRubrica_Rubrica}"/>
+							</p:column>   
+                    						
+					
+				
+				</p:dataTable>	
+					
+				
+			</p:panel>
+				
+	   </h:form>
+		 </f:view>
+		</ui:define>	  
+			<ui:define name="footer">
+			<ui:include src="/WEB-INF/facelets/footer.jspx" />
+			</ui:define>	
+	</ui:composition>	
+	
+	</h:body>	
+	
+</html>	

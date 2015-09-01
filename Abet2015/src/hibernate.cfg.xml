@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">tesis</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">tesis</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <mapping resource="co/edu/usbcali/abet/Rubrica.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Curso.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Outcome.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Estudiante.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Docente.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/ListaSepia.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Programa.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/OutcomePorPrograma.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Assesment.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Pensum.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Materia.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/OutcomePorCurso.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Evaluacion.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/Categoria.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/PeriodoAcademico.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/RubricaPorCurso.hbm.xml" />
+        <mapping resource="co/edu/usbcali/abet/DetalleRubrica.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

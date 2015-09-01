@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31/08/2015 10:03:07 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.edu.usbcali.abet.Assesment" table="ASSESMENT" schema="TESIS">
+        <id name="idCodigoAssesment" type="java.lang.Long">
+            <column name="ID_CODIGO_ASSESMENT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="listaSepia" class="co.edu.usbcali.abet.ListaSepia" fetch="select">
+            <column name="ID_LISTA_SEPIA" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="rubricaPorCurso" class="co.edu.usbcali.abet.RubricaPorCurso" fetch="select">
+            <column name="ID_RUBRICA_POR_CURSO" precision="22" scale="0" />
+        </many-to-one>
+        <property name="calificacion" type="java.lang.Long">
+            <column name="CALIFICACION" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

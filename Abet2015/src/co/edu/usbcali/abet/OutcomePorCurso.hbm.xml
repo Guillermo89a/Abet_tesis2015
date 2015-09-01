@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31/08/2015 10:03:07 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.edu.usbcali.abet.OutcomePorCurso" table="OUTCOME_POR_CURSO" schema="TESIS">
+        <id name="idOutcomePorCurso" type="java.lang.Long">
+            <column name="ID_OUTCOME_POR_CURSO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="outcome" class="co.edu.usbcali.abet.Outcome" fetch="select">
+            <column name="ID_OUTCOME" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="curso" class="co.edu.usbcali.abet.Curso" fetch="select">
+            <column name="ID_CURSO" precision="22" scale="0" />
+        </many-to-one>
+        <property name="detalle" type="java.lang.String">
+            <column name="DETALLE" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

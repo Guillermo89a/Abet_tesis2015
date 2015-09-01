@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31/08/2015 10:03:07 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="co.edu.usbcali.abet.Outcome" table="OUTCOME" schema="TESIS">
+        <id name="idOutcome" type="java.lang.Long">
+            <column name="ID_OUTCOME" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="detalle" type="java.lang.String">
+            <column name="DETALLE" length="100" not-null="true" />
+        </property>
+        <set name="outcomePorProgramas" inverse="true" lazy="true" table="OUTCOME_POR_PROGRAMA" fetch="select">
+            <key>
+                <column name="ID_OUTCOME" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.edu.usbcali.abet.OutcomePorPrograma" />
+        </set>
+        <set name="outcomePorCursos" inverse="true" lazy="true" table="OUTCOME_POR_CURSO" fetch="select">
+            <key>
+                <column name="ID_OUTCOME" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.edu.usbcali.abet.OutcomePorCurso" />
+        </set>
+        <set name="evaluacions" inverse="true" lazy="true" table="EVALUACION" fetch="select">
+            <key>
+                <column name="ID_OUTCOME" precision="22" scale="0" />
+            </key>
+            <one-to-many class="co.edu.usbcali.abet.Evaluacion" />
+        </set>
+    </class>
+</hibernate-mapping>
